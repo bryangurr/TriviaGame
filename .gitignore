@@ -4,6 +4,7 @@
 /backend/node_modules
 /backend/.vs/
 /backend/bin/
+/backend/obj
 /.env
 /.vscode
 .DS_Store
