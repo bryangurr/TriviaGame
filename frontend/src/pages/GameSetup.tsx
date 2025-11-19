@@ -47,7 +47,7 @@ function GameSetup() {
         difficulty: formData.difficulty,
       });
       console.log("Questions fetched:", questions);
-      navigate("/game", { state: { questions } });
+      navigate("/question", { state: { questions } });
     } catch (err: any) {
       setError(err?.message || "Failed to fetch questions");
     } finally {

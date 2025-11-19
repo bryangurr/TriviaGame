@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Game from "./pages/GameSetup";
-import Question from "./pages/Question";
+import Question from "./pages/QuestionPage";
 
 function App() {
   return (
