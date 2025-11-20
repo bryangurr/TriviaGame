@@ -32,7 +32,7 @@ export const fetchQuestions = async ({
   amount: number;
   category?: string;
   difficulty?: string;
-}): Promise<{ response_code: number; questions: Question[] }> => {
+}): Promise<{ response_code: number; results: Question[] }> => {
   try {
     let url = `${API_URL}/api.php?amount=${amount}`;
     if (category) {
@@ -46,7 +46,7 @@ export const fetchQuestions = async ({
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data as { response_code: number; questions: Question[] };
+    return data as { response_code: number; results: Question[] };
   } catch (error) {
     console.error("Error fetching questions:", error);
     throw error;

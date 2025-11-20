@@ -41,13 +41,22 @@ function GameSetup() {
     setError(null);
     setLoading(true);
     try {
-      const questions = await fetchQuestions({
+      const res = await fetchQuestions({
         amount: 10,
         category: formData.category || undefined,
         difficulty: formData.difficulty,
       });
-      console.log("Questions fetched:", questions);
-      navigate("/question", { state: { questions } });
+      console.log(res.response_code);
+      if (res.response_code != 0) {
+        setError("Failed to fetch questions");
+        throw new Error("Failed to fetch questions" + res.response_code);
+      } else {
+        console.log("Fetched questions successfully");
+        console.log("Response code: ", res.response_code);
+        console.log("Questions: ", res.results);
+        console.log("Full Response:", res);
+        navigate("/question", { state: { questions: res.results } });
+      }
     } catch (err: any) {
       setError(err?.message || "Failed to fetch questions");
     } finally {
