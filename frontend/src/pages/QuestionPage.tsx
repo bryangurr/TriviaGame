@@ -25,14 +25,10 @@ const QuestionPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!selectedAnswer) return;
-    console.log("Submit clicked");
     if (selectedAnswer === null) return;
     setIsAnswered(true);
     if (selectedAnswer === q.correct_answer) {
-      console.log("Correct answer!");
       setScore((s) => s + 1);
-    } else {
-      console.log("Wrong answer!");
     }
     if (questionNum + 1 >= questions.length) {
       setQuizFinished(true);
@@ -47,7 +43,7 @@ const QuestionPage = () => {
   };
 
   const handleFinishQuiz = () => {
-    navigate("/");
+    navigate("/results", { state: { score, total: questions.length } });
   };
 
   // Get current question
