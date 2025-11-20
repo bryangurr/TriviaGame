@@ -18,3 +18,10 @@
 
 4. Open your browser to:
    - http://localhost:3000  
+
+
+## Next Steps and Improvements
+- Fix and improve styling for consistent spacing and responsiveness  
+- Save high scores to a database or local storage  
+- Allow quiz takers to choose the number of questions  
+- Allow quiz takers to create their own personal trivia lists  
